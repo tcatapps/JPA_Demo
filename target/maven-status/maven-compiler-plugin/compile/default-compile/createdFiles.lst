@@ -1,0 +1,4 @@
+org\example\App.class
+org\example\Models\CreateStudent.class
+org\example\Models\Student.class
+org\example\Repositories\StudentRepository.class
