@@ -2,6 +2,7 @@
     <persistence-unit name="student_pu" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>org.example.Models.Student</class>
+        <class>org.example.Models.School</class>
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:h2:~/test"/>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>

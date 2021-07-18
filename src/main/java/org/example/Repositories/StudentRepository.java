@@ -1,5 +1,6 @@
 package org.example.Repositories;
 
+import org.example.Models.School;
 import org.example.Models.Student;
 
 import javax.persistence.EntityManager;
@@ -56,8 +57,16 @@ public class StudentRepository {
 
     public List<String> findFirstNames(){
         entityManager.getTransaction().begin();
-        Query query = entityManager.createQuery("select s.first_name from Student s");
+        Query query = entityManager.createQuery("select s.firstName from Student s");
 
         return query.getResultList();
+    }
+
+    public Student addSchool(Long id, School school){
+        entityManager.getTransaction().begin();
+        Student student = findStudent(id);
+        student.setSchool(school);
+        entityManager.getTransaction().commit();
+        return student;
     }
 }

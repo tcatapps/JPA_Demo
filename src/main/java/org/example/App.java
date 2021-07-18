@@ -1,6 +1,8 @@
 package org.example;
 
+import org.example.Models.School;
 import org.example.Models.Student;
+import org.example.Repositories.SchoolRepository;
 import org.example.Repositories.StudentRepository;
 
 /**
@@ -15,19 +17,24 @@ public class App
         student.setFirstName("Alan");
         student.setLastName("Red");
 
-        StudentRepository repository = new StudentRepository();
+        StudentRepository studentRepository = new StudentRepository();
+        SchoolRepository schoolRepository = new SchoolRepository();
 
-        repository.addStudent(student);
+        studentRepository.addStudent(student);
         System.out.println("Added student " + student);
 
-        student = repository.findStudent(student.getId());
+        School school = new School("school_1", "city_1");
+        schoolRepository.addSchool(school);
+        System.out.println("Added a new School to the db " + school);
+
+        student = studentRepository.findStudent(student.getId());
         System.out.println("Found student " + student);
 
         student.setLastName("Green");
-        repository.update(student);
+        studentRepository.update(student);
         System.out.println("Updated student " + student);
 
-        repository.delete(student);
+        studentRepository.delete(student);
         System.out.println("Deleted student " + student);
 
     }

@@ -19,6 +19,9 @@ public @Data class Student {
     @Column(name = "last_name")
     private String lastName;
 
+    @OneToOne
+    private School school;
+
 
     public Student() {
     }
